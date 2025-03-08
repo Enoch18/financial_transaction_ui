@@ -19,3 +19,18 @@ To begin development:
 
    ```bash
    https://github.com/Enoch18/financial_transaction_ui.git
+
+2. **Navigate to the project directory**:
+
+   ```bash
+   cd financial_transaction_ui
+
+3. **Install Dependencies**:
+
+   ```bash
+   npm install
+
+4. **Run the development server**:
+
+   ```bash
+   npm run dev
