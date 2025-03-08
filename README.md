@@ -18,4 +18,4 @@ To begin development:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your-username/financial-transaction-management-system.git
+   https://github.com/Enoch18/financial_transaction_ui.git
