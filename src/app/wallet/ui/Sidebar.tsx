@@ -1,7 +1,8 @@
 "use client";
+import CustomLogo from "@components/CustomLogo";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
-import { MdAdd, MdHome, MdLogout, MdMoney, MdReceipt, MdSend } from "react-icons/md";
+import { MdAdd, MdHome, MdLogout, MdReceipt, MdSend } from "react-icons/md";
 
 export default function Sidebar({ isOpen, toggleSidebar }: { isOpen: boolean; toggleSidebar: () => void }) {
     const links = [
@@ -29,8 +30,9 @@ export default function Sidebar({ isOpen, toggleSidebar }: { isOpen: boolean; to
             {/* Sidebar Content (Only show when open) */}
             {isOpen && (
                 <div >
-                    <h2 className="text-xl font-bold mb-4 flex flex-row items-center gap-2"><MdMoney className="text-orange-500 text-3xl" /> <i>EdsoFin</i></h2>
-                    <nav>
+                    <CustomLogo />
+
+                    <nav className="mt-4">
                         <ul className="space-y-3">
                             {links.map((link, index) => (
                                 <li key={index}>

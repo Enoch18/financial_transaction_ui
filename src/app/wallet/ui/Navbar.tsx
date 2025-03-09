@@ -1,7 +1,8 @@
+import CustomLogo from "@components/CustomLogo";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { FaUserCircle } from "react-icons/fa";
-import { MdMoney, MdOutlineNotifications } from "react-icons/md";
+import { MdOutlineNotifications } from "react-icons/md";
 
 export default function Navbar({ isOpen, toggleSidebar }: { isOpen: boolean; toggleSidebar: () => void }) {
     return (
@@ -16,7 +17,7 @@ export default function Navbar({ isOpen, toggleSidebar }: { isOpen: boolean; tog
                 <Menu size={24} />
             </button>
 
-            {!isOpen && <h2 className="text-xl font-bold flex flex-row items-center ml-2"><MdMoney className="text-orange-500 text-3xl" /> <i>EdsoFin</i></h2>}
+            {!isOpen && <CustomLogo />}
 
             <div className="flex flex-row flex-1">
                 {/* <h1 className="text-lg font-bold mx-auto md:mx-2">My App</h1> */}
