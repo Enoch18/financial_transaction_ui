@@ -1,3 +1,4 @@
+'use client'
 import TextInput from "@components/FormInput/TextInput";
 import Link from "next/link";
 
