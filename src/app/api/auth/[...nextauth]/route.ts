@@ -3,7 +3,6 @@ import NextAuth, { AuthOptions, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { axiosInstance } from "@lib/axios";
 import { JWT } from "next-auth/jwt";
-import { AdapterUser } from "next-auth/adapters";
 
 export const authOptions: AuthOptions = {
   providers: [
