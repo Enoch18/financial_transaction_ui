@@ -17,7 +17,7 @@ export const authOptions: AuthOptions = {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req){
+      async authorize(credentials){
         return await axiosInstance.post('/login', {
             email: credentials?.email,
             password: credentials?.password

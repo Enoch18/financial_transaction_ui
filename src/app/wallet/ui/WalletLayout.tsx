@@ -1,5 +1,5 @@
 "use client";
-import React, { PropsWithChildren, useState } from "react";
+import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 
