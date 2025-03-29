@@ -1,5 +1,5 @@
 import NextAuth, { AuthOptions, Session } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+// import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { axiosInstance } from "@lib/axios";
 import { JWT } from "next-auth/jwt";
@@ -49,11 +49,11 @@ export const authOptions: AuthOptions = {
     // newUser: "/auth/new-user", // will redirect to this page if the user is signed in for the first time
   },
   callbacks:{
-    async jwt({ token, user }: { token: JWT; user?: { id: string; name: string; email: string; created_at: string; updated_at: string } | unknown }) {
+    async jwt({ token, user }: { token: JWT; user: { name: string | null | undefined; email: string; image?: string; accessToken?: string; } }) {
         //log(token, user)
         return {...(typeof token === 'object' ? token : {}), ...(typeof user === 'object' ? user : {})}
     },
-    async session({session, token}: {session:any, token:JWT, user:AdapterUser}){
+    async session({session, token, user}: {session:Session, token:JWT, user:AdapterUser}){
         session.user = token
         return session
     }

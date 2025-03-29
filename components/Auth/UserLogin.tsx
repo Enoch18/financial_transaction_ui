@@ -85,7 +85,7 @@ const UserLogin = ({session}: LoginProps) => {
                 <TextInput id="email" onChange={formik.handleChange} value={formik.values.email} label="Email Address*" />
                 <TextInput id="password" type="password" onChange={formik.handleChange} value={formik.values.password} label="Password*" />
 
-                <p className="mt-4">Don't have an account? <Link href="/auth/register" className="text-orange-600 font-semibold underline">Register</Link></p>
+                <p className="mt-4">{"Don't have an account?"} <Link href="/auth/register" className="text-orange-600 font-semibold underline">Register</Link></p>
 
                 <button className={`${submitting ? 'bg-orange-400' : 'bg-orange-700'} hover:bg-orange-900 p-2 px-4 rounded text-white font-semibold mt-4 cursor-pointer`} disabled={submitting}>
                     {submitting ? 'Submitting...' : 'Login'}

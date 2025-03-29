@@ -4,7 +4,7 @@ import React, { useState } from "react";
 interface InputProps{
     label: string;
     id: string;
-    onChange?: (e:React.ChangeEvent<HTMLInputElement>) => void;
+    onChange: (e:React.ChangeEvent<HTMLInputElement>) => void;
     value?: string;
     type?: string;
 }
@@ -13,7 +13,7 @@ const TextInput = ({label, id, onChange, value, type}: InputProps) => {
     const [valueChanges, setValueChanges] = useState("");
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-        onChange && onChange(e);
+        onChange(e);
         setValueChanges(e.target.value);
     }
 
