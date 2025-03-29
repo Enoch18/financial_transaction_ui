@@ -53,7 +53,7 @@ export const authOptions: AuthOptions = {
         //log(token, user)
         return {...(typeof token === 'object' ? token : {}), ...(typeof user === 'object' ? user : {})}
     },
-    async session({session, token, user}: {session:Session, token:JWT, user:AdapterUser}){
+    async session({session, token}: {session:Session, token:JWT}){
         session.user = token
         return session
     }
