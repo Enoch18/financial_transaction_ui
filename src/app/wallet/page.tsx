@@ -9,9 +9,12 @@ const Dashboard = async() => {
   } = await getData('/user');
 
   const transactions: {
-    type: string,
-    amount: string,
-    created_at: string
+    id: string;
+    reference: string;
+    type: string;
+    amount: string;
+    status: string;
+    created_at: string;
   }[] = await getTransactionData(`/transactions?user_id=${user?.id}`);
   
   return (
