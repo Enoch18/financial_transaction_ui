@@ -1,8 +1,8 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import { getServerSession } from "next-auth"
 import { signOut } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { axiosInstance, axiosTransactionInstance } from "./axios";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 
 export async function getData<T>(
     url: string,
