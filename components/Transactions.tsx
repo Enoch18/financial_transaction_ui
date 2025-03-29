@@ -1,5 +1,14 @@
+interface TransProps{
+    id: string;
+    reference: string;
+    type: string;
+    amount: string;
+    status: string;
+    created_at: string;
+}
+
 interface TransactionProps{
-    transactions: any[];
+    transactions: TransProps[]
 }
 
 const Transactions = ({transactions}: TransactionProps) => {
@@ -28,7 +37,7 @@ const Transactions = ({transactions}: TransactionProps) => {
             <div className="max-h-[60vh] overflow-scroll">
                 {transactions.length === 0 && <p>No transactions on this account!</p>}
 
-                {transactions?.length > 0 && transactions?.map((item:any, index:number) => (
+                {transactions?.length > 0 && transactions?.map((item:TransProps, index:number) => (
                     <div className="flex flex-row items-center border border-gray-200 p-3 rounded mt-4" key={index}>
                         <div>
                             <p className="font-semibold capitalize">Fund {item.type}</p>

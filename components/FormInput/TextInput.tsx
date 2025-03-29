@@ -1,10 +1,10 @@
 'use client'
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface InputProps{
     label: string;
     id: string;
-    onChange?: (e:any) => void;
+    onChange?: (e:React.ChangeEvent<HTMLInputElement>) => void;
     value?: string;
     type?: string;
 }
@@ -12,7 +12,7 @@ interface InputProps{
 const TextInput = ({label, id, onChange, value, type}: InputProps) => {
     const [valueChanges, setValueChanges] = useState("");
 
-    const handleChange = (e:any) => {
+    const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         onChange && onChange(e);
         setValueChanges(e.target.value);
     }

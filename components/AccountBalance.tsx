@@ -2,7 +2,9 @@ import Link from "next/link";
 import { MdAdd, MdSend } from "react-icons/md";
 
 interface BalanceProps{
-    user: any;
+    user: {
+        balance: string
+    };
 }
 
 const AccountBalance = ({user}: BalanceProps) => {

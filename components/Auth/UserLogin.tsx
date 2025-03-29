@@ -2,14 +2,18 @@
 
 import TextInput from "@components/FormInput/TextInput"
 import { useFormik } from "formik";
-import { signIn } from "next-auth/react";
+import { signIn, SignInResponse } from "next-auth/react";
 import Link from "next/link"
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import * as Yup from 'yup';
 
 interface LoginProps{
-    session: any;
+    session: {
+        user: {
+            token: string
+        }
+    };
 }
 
 const UserLogin = ({session}: LoginProps) => {
@@ -17,6 +21,13 @@ const UserLogin = ({session}: LoginProps) => {
     const [submitting, setSubmitting] = useState(false);
 
     const searchParams = useSearchParams();
+    const router = useRouter();
+
+    useEffect(() => {
+        if(session){
+            router.push('/wallet');
+        }
+    }, [session])
 
     useEffect(() => {
         if(searchParams.get('error')){
@@ -39,7 +50,7 @@ const UserLogin = ({session}: LoginProps) => {
         },
         validateOnChange: false,
         validationSchema: validationSchema,
-        onSubmit: async (values:any) => {       
+        onSubmit: async (values: {email: string, password: string}) => {       
             setSubmitting(true);
             
             const data = {
@@ -48,7 +59,7 @@ const UserLogin = ({session}: LoginProps) => {
                 password: values.password,
             }
 
-            await signIn('credentials', data).then((response:any) => {
+            await signIn('credentials', data).then((response: SignInResponse | undefined) => {
                 if(response?.ok){
                     window.location.href = '/wallet';
                 }else{

@@ -7,7 +7,9 @@ import { getData } from "@lib/getData";
 
 const MainWalletLayout: React.FC = async({ children }: PropsWithChildren) => { 
     const session = await getServerSession(authOptions);
-    const user:any = await getData('/user');
+    const user:{
+        name: string
+    } = await getData('/user');
 
     if(!session){
         redirect('/auth/login');

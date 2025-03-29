@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 
 interface WalletLayoutProps{
-    user: any;
+    user: {name: string};
     children: React.ReactNode;
 }
 

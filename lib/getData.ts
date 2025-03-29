@@ -8,7 +8,12 @@ export async function getData<T>(
     url: string,
   ): Promise<T> {
 
-  const session:any = await getServerSession(authOptions);
+  const session : {
+    user: {
+      token: string
+    }
+  } | null = await getServerSession(authOptions);
+  
   const token = session?.user?.token;
 
   try{
@@ -19,8 +24,8 @@ export async function getData<T>(
       },
     });
     return response.data;
-  }catch(err:any){ 
-    if(err.status === 401){
+  }catch(err){ 
+    if((err as { status: number }).status === 401){
       signOut({callbackUrl: '/auth/login'});
       redirect('/auth/login');
     }
@@ -32,7 +37,11 @@ export async function getTransactionData<T>(
   url: string,
 ): Promise<T> {
 
-const session:any = await getServerSession(authOptions);
+const session : {
+  user: {
+    token: string
+  }
+} | null = await getServerSession(authOptions);
 const token = session?.user?.token;
 
 try{
@@ -43,8 +52,8 @@ try{
     },
   });
   return response.data;
-}catch(err:any){ 
-  if(err.status === 401){
+}catch(err){ 
+  if((err as { status: number }).status === 401){
     signOut({callbackUrl: '/auth/login'});
     redirect('/auth/login');
   }

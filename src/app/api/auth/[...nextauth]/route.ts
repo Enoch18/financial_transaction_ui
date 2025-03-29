@@ -1,7 +1,9 @@
-import NextAuth, { AuthOptions } from "next-auth";
+import NextAuth, { AuthOptions, Session } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { axiosInstance } from "@lib/axios";
+import { JWT } from "next-auth/jwt";
+import { AdapterUser } from "next-auth/adapters";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -19,9 +21,9 @@ export const authOptions: AuthOptions = {
         return await axiosInstance.post('/login', {
             email: credentials?.email,
             password: credentials?.password
-        }).then((response:any) => {
+        }).then((response) => {
             return response.data;
-        }).catch((error:any) => {
+        }).catch((error) => {
             if(error.response.data?.error){
                 throw new Error(error.response.data.error);
             }else if(error.response.data?.message){
@@ -47,11 +49,11 @@ export const authOptions: AuthOptions = {
     // newUser: "/auth/new-user", // will redirect to this page if the user is signed in for the first time
   },
   callbacks:{
-    async jwt({token, user}: {token: any, user:any}){
+    async jwt({ token, user }: { token: JWT; user?: { id: string; name: string; email: string; created_at: string; updated_at: string } | unknown }) {
         //log(token, user)
-        return {...token, ...user}
+        return {...(typeof token === 'object' ? token : {}), ...(typeof user === 'object' ? user : {})}
     },
-    async session({session, token, user}: {session: any, token:any, user:any}){
+    async session({session, token}: {session:any, token:JWT, user:AdapterUser}){
         session.user = token
         return session
     }

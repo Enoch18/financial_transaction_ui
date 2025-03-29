@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FaUserCircle } from "react-icons/fa";
 import { MdOutlineNotifications } from "react-icons/md";
 
-export default function Navbar({ isOpen, toggleSidebar, user }: { isOpen: boolean; toggleSidebar: () => void, user:any }) {
+export default function Navbar({ isOpen, toggleSidebar, user }: { isOpen: boolean; toggleSidebar: () => void, user:{name: string} }) {
     return (
       <nav
         className={`p-4 sticky top-0 z-10 transition-all duration-300 ${
