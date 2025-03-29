@@ -1,4 +1,4 @@
-const FeatureCard = ({ title, description }: any) => {
+const FeatureCard = ({ title, description }: {title: string, description: string}) => {
     return (
       <div className="bg-white p-6 shadow-md rounded-lg w-72">
         <h3 className="text-xl font-semibold text-gray-800">{title}</h3>

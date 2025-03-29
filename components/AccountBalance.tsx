@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { MdAdd, MdSend } from "react-icons/md";
 
-const AccountBalance = () => {
+interface BalanceProps{
+    user: any;
+}
+
+const AccountBalance = ({user}: BalanceProps) => {
     return (
         <div className="bg-gray-100 p-5 rounded py-6">
             <h4 className="text-xl font-semibold">Account Balance</h4>
@@ -9,7 +13,7 @@ const AccountBalance = () => {
             <div className="mt-12 flex flex-row">
                 <div>
                     <p className="font-semibold text-gray-500">USD</p>
-                    <h4 className="text-2xl text-black font-bold">$10.00</h4>
+                    <h4 className="text-2xl text-black font-bold">${user?.balance}</h4>
                 </div>
 
                 <div className="flex flex-1 flex-row items-center justify-end gap-5 ml-4">

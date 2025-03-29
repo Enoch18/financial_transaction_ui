@@ -1,9 +1,20 @@
 import React, { PropsWithChildren } from "react";
 import WalletLayout from "./ui/WalletLayout";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
+import { getData } from "@lib/getData";
 
-const MainWalletLayout: React.FC = ({ children }: PropsWithChildren) => { 
+const MainWalletLayout: React.FC = async({ children }: PropsWithChildren) => { 
+    const session = await getServerSession(authOptions);
+    const user:any = await getData('/user');
+
+    if(!session){
+        redirect('/auth/login');
+    }
+
     return (
-        <WalletLayout>
+        <WalletLayout user={user}>
             {children}
         </WalletLayout>
     );

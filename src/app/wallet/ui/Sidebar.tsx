@@ -2,6 +2,7 @@
 import CustomLogo from "@components/CustomLogo";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
+import { signOut } from "next-auth/react";
 import { MdAdd, MdHome, MdLogout, MdReceipt, MdSend } from "react-icons/md";
 
 export default function Sidebar({ isOpen, toggleSidebar }: { isOpen: boolean; toggleSidebar: () => void }) {
@@ -50,7 +51,7 @@ export default function Sidebar({ isOpen, toggleSidebar }: { isOpen: boolean; to
             )}
 
             <div className="absolute bottom-12 left-4 right-4">
-                <button className="flex flex-row items-center gap-2 cursor-pointer">
+                <button onClick={() => signOut()} className="flex flex-row items-center gap-2 cursor-pointer">
                     <MdLogout size={24} /> Logout
                 </button>
             </div>

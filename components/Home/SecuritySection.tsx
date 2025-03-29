@@ -1,6 +1,6 @@
 import { AlertTriangle, Lock, ShieldCheck } from "lucide-react";
 
-const SecurityFeature = ({ title, icon }:any) => {
+const SecurityFeature = ({ title, icon }: {title: string, icon: any}) => {
     return (
       <div className="bg-gray-700 p-6 shadow-md rounded-lg w-72 flex flex-col items-center">
         <div className="text-orange-400 mb-3">{icon}</div>

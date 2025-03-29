@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FaUserCircle } from "react-icons/fa";
 import { MdOutlineNotifications } from "react-icons/md";
 
-export default function Navbar({ isOpen, toggleSidebar }: { isOpen: boolean; toggleSidebar: () => void }) {
+export default function Navbar({ isOpen, toggleSidebar, user }: { isOpen: boolean; toggleSidebar: () => void, user:any }) {
     return (
       <nav
         className={`p-4 sticky top-0 z-10 transition-all duration-300 ${
@@ -28,7 +28,7 @@ export default function Navbar({ isOpen, toggleSidebar }: { isOpen: boolean; tog
 
                     <Link href="/wallet/profile" className="p-2 flex flex-row items-center gap-2 font-semibold">
                         <FaUserCircle size={24} />
-                        Enock Soko
+                        {user.name}
                     </Link>
                 </div>
             </div>
