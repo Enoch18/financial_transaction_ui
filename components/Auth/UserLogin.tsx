@@ -13,7 +13,7 @@ interface LoginProps{
         user: {
             token: string
         }
-    };
+    } | null;
 }
 
 const UserLogin = ({session}: LoginProps) => {

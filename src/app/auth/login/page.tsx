@@ -3,7 +3,11 @@ import UserLogin from "@components/Auth/UserLogin";
 import { getServerSession } from "next-auth";
 
 const Login = async() => {
-    const session = await getServerSession(authOptions);
+    const session: {
+        user: {
+            token: string;
+        }
+    } | null = await getServerSession(authOptions);
 
     return (
         <UserLogin session={session} />   
