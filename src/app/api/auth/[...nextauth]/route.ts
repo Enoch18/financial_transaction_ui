@@ -1,10 +1,10 @@
-import NextAuth, { AuthOptions, Session } from "next-auth";
+import NextAuth, { NextAuthOptions, Session } from "next-auth";
 // import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { axiosInstance } from "@lib/axios";
 import { JWT } from "next-auth/jwt";
 
-export const authOptions: AuthOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     // GoogleProvider({
     //   clientId: process.env.GOOGLE_CLIENT_ID!,
