@@ -6,9 +6,9 @@ const Transfer = () => {
             <h4 className="text-3xl text-center">Transfer Money</h4>
 
             <div className="border border-gray-200 p-8 rounded mt-5">
-                <TextInput label="Receiptient Email" />
-                <TextInput label="Transfer Amount*" />
-                <TextInput label="Transfer Purpose (Optional)" />
+                <TextInput id="receipient_email" onChange={() => {}} label="Receiptient Email" />
+                <TextInput id="transfer_amount" onChange={() => {}} label="Transfer Amount*" />
+                <TextInput id="purpose" onChange={() => {}} label="Transfer Purpose (Optional)" />
             </div>
 
             <div className="mt-5 flex flex-row justify-center">

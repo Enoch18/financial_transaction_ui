@@ -6,12 +6,12 @@ const Withdraw = () => {
             <h4 className="text-3xl text-center">Withdraw Money</h4>
 
             <div className="border border-gray-200 p-8 rounded mt-5">
-                <TextInput label="Bank Name*" />
-                <TextInput label="Account Name*" />
-                <TextInput label="Account Number*" />
-                <TextInput label="Swift Code*" />
-                <TextInput label="Transfer Amount*" />
-                <TextInput label="Transfer Purpose (Optional)" />
+                <TextInput id="bank" onChange={() => {}} label="Bank Name*" />
+                <TextInput id="account_name" onChange={() => {}} label="Account Name*" />
+                <TextInput id="account_number" onChange={() => {}} label="Account Number*" />
+                <TextInput id="swift_code" onChange={() => {}} label="Swift Code*" />
+                <TextInput id="amount" onChange={() => {}} label="Transfer Amount*" />
+                <TextInput id="purpose" onChange={() => {}} label="Transfer Purpose (Optional)" />
             </div>
 
             <div className="mt-5 flex flex-row justify-center">

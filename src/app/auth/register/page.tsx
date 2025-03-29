@@ -8,10 +8,10 @@ const Register = () => {
             <p className="text-sm mt-4">Create an account in order to transact!</p>
 
             <form>
-                <TextInput label="Name*" />
-                <TextInput label="Email Address*" />
-                <TextInput label="Password*" />
-                <TextInput label="Confirm Password*" />
+                <TextInput id="name" onChange={() => {}} label="Name*" />
+                <TextInput id="email" onChange={() => {}} label="Email Address*" />
+                <TextInput id="password" onChange={() => {}} label="Password*" />
+                <TextInput id="confirm_password" onChange={() => {}} label="Confirm Password*" />
 
                 <p className="mt-4">Already have an account? <Link href="/auth/login" className="text-orange-600 font-semibold underline">Login</Link></p>
 
